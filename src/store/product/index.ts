@@ -1,6 +1,8 @@
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
-import IProduct, {mockProducts} from '../../models/IProduct';
+import {createSlice} from '@reduxjs/toolkit';
+import {loadProducts} from './actions';
 import {RootState} from '..';
+
+import IProduct from '../../models/IProduct';
 
 interface ISliceState {
   products: IProduct[];
@@ -9,14 +11,6 @@ interface ISliceState {
 const initialState: ISliceState = {
   products: [],
 };
-
-/** fetch products from the server */
-export const loadProducts = createAsyncThunk(
-  'product/load',
-  async (_: void) => {
-    return mockProducts;
-  },
-);
 
 /** product state slice */
 const productSlice = createSlice({

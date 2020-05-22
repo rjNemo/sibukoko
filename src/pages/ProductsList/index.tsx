@@ -1,7 +1,8 @@
 import React, {FC, useEffect} from 'react';
 // Redux
 import {connect, useDispatch} from 'react-redux';
-import {selectProducts, loadProducts} from '../../store/product';
+import {selectProducts} from '../../store/product';
+import {loadProducts} from '../../store/product/actions';
 // Typing
 import IProduct from '../../models/IProduct';
 
