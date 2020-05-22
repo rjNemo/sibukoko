@@ -1,12 +1,19 @@
 import React from 'react';
 import {render} from '@testing-library/react';
 import {ProductsListPage} from '.';
-import {mockProducts} from '../../models/IProduct';
+import IProduct, {mockProducts} from '../../models/IProduct';
+import {ActionCreatorWithPayload} from '@reduxjs/toolkit';
 
 describe('Product list', () => {
   mockProducts.forEach(p =>
     it('displays products', () => {
-      const {getByText} = render(<ProductsListPage products={mockProducts} />);
+      const loadProducts = jest.fn().mockName('loadProducts');
+      const {getByText} = render(
+        <ProductsListPage
+          products={mockProducts}
+          loadProducts={loadProducts}
+        />,
+      );
       expect(getByText(p.name)).not.toBeNull();
     }),
   );

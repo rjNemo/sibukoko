@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import IProduct, {mockProducts} from '../../models/IProduct';
 import {RootState} from '..';
 
@@ -7,21 +7,26 @@ interface ISliceState {
 }
 
 const initialState: ISliceState = {
-  products: mockProducts,
+  products: [],
 };
+
+/** fetch products from the server */
+export const loadProducts = createAsyncThunk(
+  'product/load',
+  async (_: void) => {
+    return mockProducts;
+  },
+);
+
 /** product state slice */
 const productSlice = createSlice({
   name: 'product',
   initialState,
-  reducers: {
-    /**
-     * store the received products in the store
-     * @param products IProduct[]
-     */
-    loadProducts: (state, action: PayloadAction<IProduct[]>) => ({
-      ...state,
-      products: action.payload,
-    }),
+  reducers: {},
+  extraReducers: builder => {
+    builder.addCase(loadProducts.fulfilled, (state, action) => {
+      state.products = action.payload;
+    });
   },
 });
 
@@ -29,9 +34,6 @@ const productSlice = createSlice({
 export const selectProducts = (state: RootState) => ({
   products: state.product.products,
 });
-
-// export actions
-export const {loadProducts} = productSlice.actions;
 
 /** product reducer */
 export default productSlice.reducer;
