@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from '@testing-library/react';
-import ProductsListPage from '.';
+import {ProductsListPage} from '.';
 import {mockProducts} from '../../models/IProduct';
 
 describe('Product list', () => {

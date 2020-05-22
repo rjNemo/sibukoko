@@ -1,10 +1,14 @@
 import React, {FC} from 'react';
+// Redux
+import {connect} from 'react-redux';
+import {selectProducts} from '../../store/product';
+// Typing
 import IProduct from '../../models/IProduct';
 
 /**
- * Displays Products from the server
+ * Receives a Product array and displays its content
  */
-const ProductsListPage: FC<{products: IProduct[]}> = ({products}) => (
+export const ProductsListPage: FC<{products: IProduct[]}> = ({products}) => (
   <div className="">
     {products.map(p => (
       <div key={p.id}>{p.name}</div>
@@ -12,4 +16,5 @@ const ProductsListPage: FC<{products: IProduct[]}> = ({products}) => (
   </div>
 );
 
-export default ProductsListPage;
+/** Displays Product from the server */
+export default connect(selectProducts)(ProductsListPage);

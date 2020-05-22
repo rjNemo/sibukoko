@@ -1,7 +1,6 @@
 import React, {FC} from 'react';
 import ProductsListPage from './pages/ProductsList';
-import {mockProducts} from './models/IProduct';
 
-const App: FC = () => <ProductsListPage products={mockProducts} />;
+const App: FC = () => <ProductsListPage />;
 
 export default App;
