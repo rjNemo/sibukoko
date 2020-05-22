@@ -7,6 +7,8 @@ import {loadProducts} from '../../store/product/actions';
 import IProduct from '../../models/IProduct';
 import {Container, Typography} from '@material-ui/core';
 
+import ProductItem from '../../components/ProductItem';
+
 interface IProps {
   products: IProduct[];
   loadProducts: typeof loadProducts;
@@ -28,7 +30,7 @@ export const ProductsListPage: FC<IProps> = ({products, loadProducts}) => {
         Product List
       </Typography>
       {products.map(p => (
-        <div key={p.id}>{p.name}</div>
+        <ProductItem product={p} />
       ))}
     </Container>
   );
