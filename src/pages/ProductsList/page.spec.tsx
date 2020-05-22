@@ -10,4 +10,12 @@ describe('Product list', () => {
       expect(getByText(p.name)).not.toBeNull();
     }),
   );
+
+  it('loads products at first render', () => {
+    const loadProducts = jest.fn().mockName('loadProducts');
+    const context = render(
+      <ProductsListPage products={mockProducts} loadProducts={loadProducts} />,
+    );
+    expect(loadProducts).toHaveBeenCalled();
+  });
 });
