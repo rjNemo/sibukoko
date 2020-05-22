@@ -5,6 +5,7 @@ import {selectProducts} from '../../store/product';
 import {loadProducts} from '../../store/product/actions';
 // Typing
 import IProduct from '../../models/IProduct';
+import {Container, Typography} from '@material-ui/core';
 
 interface IProps {
   products: IProduct[];
@@ -22,11 +23,14 @@ export const ProductsListPage: FC<IProps> = ({products, loadProducts}) => {
   }, [loadProducts, dispatch]);
 
   return (
-    <div>
+    <Container>
+      <Typography variant="h4" component="h2">
+        Product List
+      </Typography>
       {products.map(p => (
         <div key={p.id}>{p.name}</div>
       ))}
-    </div>
+    </Container>
   );
 };
 
