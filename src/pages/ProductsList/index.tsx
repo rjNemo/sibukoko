@@ -19,7 +19,7 @@ export const ProductsListPage: FC<IProps> = ({products, loadProducts}) => {
 
   useEffect(() => {
     dispatch(loadProducts());
-  }, [loadProducts]);
+  }, [loadProducts, dispatch]);
 
   return (
     <div>
