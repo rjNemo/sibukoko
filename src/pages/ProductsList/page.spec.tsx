@@ -4,9 +4,9 @@ import ProductsListPage from '.';
 import {mockProducts} from '../../models/IProduct';
 
 describe('Product list', () => {
-  const {getByText} = render(<ProductsListPage products={mockProducts} />);
   mockProducts.forEach(p =>
     it('displays products', () => {
+      const {getByText} = render(<ProductsListPage products={mockProducts} />);
       expect(getByText(p.name)).not.toBeNull();
     }),
   );
