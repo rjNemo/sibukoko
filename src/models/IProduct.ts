@@ -8,7 +8,7 @@ export default interface IProduct {
   description: string;
 }
 
-// sample names to generate mocks
+// sample values to generate mocks
 const names = ['boy', 'girl', 'neutral'];
 const pics = [
   'https://source.unsplash.com/weekly?boy',
