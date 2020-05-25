@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       flexGrow: 1,
     },
+    container: {margin: theme.spacing(2, 0)},
     link: {
       textDecoration: 'none',
       color: 'inherit',
@@ -18,9 +19,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     media: {
       height: 140,
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
     },
     title: {
       flexGrow: 1,

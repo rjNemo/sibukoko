@@ -22,7 +22,7 @@ const ProductItem: FC<{product: IProduct}> = ({
 }) => {
   const classes = useStyles();
   return (
-    <Grid xs={6} className={classes.productItem}>
+    <Grid item xs={6} className={classes.productItem}>
       <Card>
         <Link to={`${Routes.PRODUCTS}/${id}`} className={classes.link}>
           <CardActionArea>
