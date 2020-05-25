@@ -21,7 +21,9 @@ const useStyles = makeStyles({
   },
 });
 
-const ProductItem: FC<{product: IProduct}> = ({product: {name, picture}}) => {
+const ProductItem: FC<{product: IProduct}> = ({
+  product: {name, picture, price},
+}) => {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
@@ -31,6 +33,9 @@ const ProductItem: FC<{product: IProduct}> = ({product: {name, picture}}) => {
           <Typography gutterBottom variant="h5" component="h3">
             {name}
           </Typography>
+          <Typography gutterBottom variant="body1" component="h4">
+            {price} €
+          </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
@@ -38,6 +43,7 @@ const ProductItem: FC<{product: IProduct}> = ({product: {name, picture}}) => {
           size="small"
           color="primary"
           startIcon={<AddShoppingCartIcon />}
+          variant="contained"
         >
           Add To Cart
         </Button>

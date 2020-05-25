@@ -18,6 +18,7 @@ export const loadProducts = createAsyncThunk<IProduct[]>(
       name: p.data().name,
       picture: p.data().picture,
       description: p.data().description,
+      price: p.data().price,
     }));
   },
 );
