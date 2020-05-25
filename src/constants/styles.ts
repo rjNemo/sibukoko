@@ -8,6 +8,10 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       flexGrow: 1,
     },
+    link: {
+      textDecoration: 'none',
+      color: 'inherit',
+    },
     productItem: {
       maxWidth: 345,
       margin: theme.spacing(2, 0),

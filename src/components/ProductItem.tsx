@@ -14,25 +14,29 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import useStyles from '../constants/styles';
 
 import IProduct from '../models/IProduct';
+import {Link} from 'react-router-dom';
+import Routes from '../constants/routes';
 
 const ProductItem: FC<{product: IProduct}> = ({
-  product: {name, picture, price},
+  product: {id, name, picture, price},
 }) => {
   const classes = useStyles();
   return (
     <Grid xs={6} className={classes.productItem}>
       <Card>
-        <CardActionArea>
-          <CardMedia className={classes.media} image={picture} title={name} />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h3">
-              {name}
-            </Typography>
-            <Typography gutterBottom variant="body1" component="h4">
-              {price} €
-            </Typography>
-          </CardContent>
-        </CardActionArea>
+        <Link to={`${Routes.PRODUCTS}/${id}`} className={classes.link}>
+          <CardActionArea>
+            <CardMedia className={classes.media} image={picture} title={name} />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h3">
+                {name}
+              </Typography>
+              <Typography gutterBottom variant="body1" component="h4">
+                {price} €
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Link>
         <CardActions>
           <Button
             size="small"
