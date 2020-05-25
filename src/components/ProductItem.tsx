@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
+// UI
 import {
-  makeStyles,
   Card,
   CardActionArea,
   CardMedia,
@@ -8,32 +8,19 @@ import {
   Typography,
   CardActions,
   Button,
-  createStyles,
-  Theme,
   Grid,
 } from '@material-ui/core';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import useStyles from '../constants/styles';
 
 import IProduct from '../models/IProduct';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      maxWidth: 345,
-      margin: theme.spacing(2, 0),
-    },
-    media: {
-      height: 140,
-    },
-  }),
-);
 
 const ProductItem: FC<{product: IProduct}> = ({
   product: {name, picture, price},
 }) => {
   const classes = useStyles();
   return (
-    <Grid xs={6} className={classes.root}>
+    <Grid xs={6} className={classes.productItem}>
       <Card>
         <CardActionArea>
           <CardMedia className={classes.media} image={picture} title={name} />

@@ -1,28 +1,8 @@
 import React from 'react';
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  makeStyles,
-  Theme,
-  createStyles,
-} from '@material-ui/core';
+// UI
+import {AppBar, Toolbar, Typography, Button} from '@material-ui/core';
 import ChildCareIcon from '@material-ui/icons/ChildCare';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    title: {
-      flexGrow: 1,
-    },
-  }),
-);
+import useStyles from '../constants/styles';
 
 const Navbar = () => {
   const classes = useStyles();
