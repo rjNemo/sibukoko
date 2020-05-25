@@ -4,7 +4,7 @@ import {connect, useDispatch} from 'react-redux';
 import {selectProducts} from '../../store/product';
 import {loadProducts} from '../../store/product/actions';
 // UI
-import {Container, Typography} from '@material-ui/core';
+import {Container, Typography, Grid} from '@material-ui/core';
 // Typing
 import IProduct from '../../models/IProduct';
 
@@ -31,9 +31,11 @@ export const ProductsListPage: FC<IProps> = ({products, loadProducts}) => {
       <Typography variant="h4" component="h2">
         Product List
       </Typography>
-      {products.map(p => (
-        <ProductItem product={p} key={p.id} />
-      ))}
+      <Grid container justify="space-between" xs={12} spacing={3}>
+        {products.map(p => (
+          <ProductItem product={p} key={p.id} />
+        ))}
+      </Grid>
     </Container>
   );
 };
