@@ -1,4 +1,7 @@
 import React, {FC} from 'react';
+// Reduc
+import {useDispatch} from 'react-redux';
+import {deleteCartItem} from '../store/product';
 // UI
 import {
   Card,
@@ -10,7 +13,7 @@ import {
   Button,
   Grid,
 } from '@material-ui/core';
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+// import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 import useStyles from '../constants/styles';
 
@@ -23,6 +26,12 @@ const CartItem: FC<{item: ICartItem}> = ({
   },
 }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  const handleRemove = (e: React.MouseEvent) => {
+    dispatch(deleteCartItem(id));
+  };
+
   return (
     <Grid item xs={12}>
       <Card key={id} className={classes.cartItem}>
@@ -42,19 +51,20 @@ const CartItem: FC<{item: ICartItem}> = ({
         </CardActionArea>
 
         <CardActions>
-          <Button
+          {/* <Button
             size="small"
             color="primary"
             startIcon={<AddShoppingCartIcon />}
             variant="contained"
           >
             Increase
-          </Button>
+          </Button> */}
           <Button
             size="small"
             color="primary"
             startIcon={<RemoveShoppingCartIcon />}
             variant="outlined"
+            onClick={handleRemove}
           >
             Remove
           </Button>
