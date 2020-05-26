@@ -3,15 +3,16 @@ import {loadProducts} from './actions';
 import {RootState} from '..';
 
 import IProduct, {mockProducts} from '../../models/IProduct';
+import ICart, {mockCart} from '../../models/ICart';
 
 interface ISliceState {
   products: IProduct[];
-  cart: IProduct[];
+  cart: ICart;
 }
 
 const initialState: ISliceState = {
-  products: [],
-  cart: mockProducts,
+  products: mockProducts,
+  cart: mockCart,
 };
 
 /** product state slice */
