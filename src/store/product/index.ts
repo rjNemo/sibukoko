@@ -2,14 +2,16 @@ import {createSlice} from '@reduxjs/toolkit';
 import {loadProducts} from './actions';
 import {RootState} from '..';
 
-import IProduct from '../../models/IProduct';
+import IProduct, {mockProducts} from '../../models/IProduct';
 
 interface ISliceState {
   products: IProduct[];
+  cart: IProduct[];
 }
 
 const initialState: ISliceState = {
   products: [],
+  cart: mockProducts,
 };
 
 /** product state slice */
@@ -27,6 +29,11 @@ const productSlice = createSlice({
 /** extract product list from the store */
 export const selectProducts = (state: RootState) => ({
   products: state.product.products,
+});
+
+/** extract cart list from the store */
+export const selectCart = (state: RootState) => ({
+  cart: state.product.cart,
 });
 
 /** product reducer */
