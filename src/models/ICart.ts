@@ -4,7 +4,7 @@ interface ICart {
   items: ICartItem[];
 }
 
-interface ICartItem {
+export interface ICartItem {
   product: IProduct;
   quantity: number;
 }
