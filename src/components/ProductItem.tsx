@@ -1,4 +1,7 @@
 import React, {FC} from 'react';
+// Routing
+import {Link} from 'react-router-dom';
+import Routes from '../constants/routes';
 // UI
 import {
   Card,
@@ -7,15 +10,12 @@ import {
   CardContent,
   Typography,
   CardActions,
-  Button,
   Grid,
 } from '@material-ui/core';
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import AddToCartButton from './AddToCartButton';
 import useStyles from '../constants/styles';
 
 import IProduct from '../models/IProduct';
-import {Link} from 'react-router-dom';
-import Routes from '../constants/routes';
 
 const ProductItem: FC<{product: IProduct}> = ({
   product: {id, name, picture, price},
@@ -38,14 +38,7 @@ const ProductItem: FC<{product: IProduct}> = ({
           </CardActionArea>
         </Link>
         <CardActions>
-          <Button
-            size="small"
-            color="primary"
-            startIcon={<AddShoppingCartIcon />}
-            variant="contained"
-          >
-            Add To Cart
-          </Button>
+          <AddToCartButton id={id} />
         </CardActions>
       </Card>
     </Grid>

@@ -1,19 +1,11 @@
 import IProduct, {mockProducts} from './IProduct';
 
-interface ICart {
-  items: ICartItem[];
-}
-
-export interface ICartItem {
+export default interface ICartItem {
   product: IProduct;
   quantity: number;
 }
 
-const mockCartItems = mockProducts.map((product, i) => ({
+export const mockCart = mockProducts.map((product, i) => ({
   product,
   quantity: i,
 }));
-
-export const mockCart = {items: mockCartItems};
-
-export default ICart;

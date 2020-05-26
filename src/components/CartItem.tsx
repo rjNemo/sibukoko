@@ -14,7 +14,7 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 import useStyles from '../constants/styles';
 
-import {ICartItem} from '../models/ICart';
+import ICartItem from '../models/ICart';
 
 const CartItem: FC<{item: ICartItem}> = ({
   item: {

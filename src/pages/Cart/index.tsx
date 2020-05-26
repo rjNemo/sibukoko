@@ -11,9 +11,9 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import PaymentIcon from '@material-ui/icons/Payment';
 import CartItem from '../../components/CartItem';
 
-import ICart from '../../models/ICart';
+import ICartItem from '../../models/ICart';
 
-const CartPage: FC<{cart: ICart}> = ({cart: {items}}) => (
+const CartPage: FC<{cart: ICartItem[]}> = ({cart}) => (
   <Container>
     <Typography variant="h4" component="h2">
       Cart
@@ -28,7 +28,7 @@ const CartPage: FC<{cart: ICart}> = ({cart: {items}}) => (
     >
       Proceed to Checkout
     </Button>
-    {items.map(item => (
+    {cart.map(item => (
       <CartItem item={item} key={item.product.id} />
     ))}
     <Button

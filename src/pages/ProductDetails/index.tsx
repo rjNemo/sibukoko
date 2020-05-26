@@ -12,15 +12,15 @@ import {
   Button,
   Grid,
 } from '@material-ui/core';
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import useStyles from '../../constants/styles';
+import AddToCartButton from '../../components/AddToCartButton';
 
 import IProduct from '../../models/IProduct';
 import Routes from '../../constants/routes';
 
 const ProductDetailsPage: FC<{product: IProduct}> = ({
-  product: {name, picture, price, description},
+  product: {id, name, picture, price, description},
 }) => {
   const classes = useStyles();
 
@@ -37,14 +37,7 @@ const ProductDetailsPage: FC<{product: IProduct}> = ({
           <Typography gutterBottom variant="body1" component="h4">
             {price} €
           </Typography>
-          <Button
-            size="small"
-            color="primary"
-            startIcon={<AddShoppingCartIcon />}
-            variant="contained"
-          >
-            Add To Cart
-          </Button>
+          <AddToCartButton id={id} />
         </Grid>
       </Grid>
       <Typography gutterBottom variant="body2" component="h4">
