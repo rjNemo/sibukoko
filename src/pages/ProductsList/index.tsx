@@ -31,7 +31,7 @@ export const ProductsListPage: FC<IProps> = ({products, loadProducts}) => {
       <Typography variant="h4" component="h2">
         Product List
       </Typography>
-      <Grid container justify="space-between" xs={12} spacing={3}>
+      <Grid container justify="space-between" spacing={2}>
         {products.map(p => (
           <ProductItem product={p} key={p.id} />
         ))}

@@ -1,12 +1,15 @@
 import React, {FC} from 'react';
-import ProductsListPage from './pages/ProductsList';
+// Routing
+import {BrowserRouter} from 'react-router-dom';
+import MainRouter from './router/MainRouter';
+
 import Navbar from './components/Navbar';
 
 const App: FC = () => (
-  <>
+  <BrowserRouter>
     <Navbar />
-    <ProductsListPage />
-  </>
+    <MainRouter />
+  </BrowserRouter>
 );
 
 export default App;
