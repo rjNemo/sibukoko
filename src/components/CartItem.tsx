@@ -24,9 +24,9 @@ const CartItem: FC<{item: ICartItem}> = ({
 }) => {
   const classes = useStyles();
   return (
-    <Grid item xs={6} className={classes.productItem}>
-      <Card key={id}>
-        <CardActionArea>
+    <Grid item xs={12}>
+      <Card key={id} className={classes.cartItem}>
+        <CardActionArea className={classes.cartItem}>
           <CardMedia className={classes.media} image={picture} title={name} />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h3">

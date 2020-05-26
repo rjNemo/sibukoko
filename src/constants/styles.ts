@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme: Theme) =>
       maxWidth: 345,
       margin: theme.spacing(2, 0),
     },
+    cartItem: {
+      margin: theme.spacing(2, 0),
+      display: 'flex',
+    },
     media: {
       height: 140,
     },
