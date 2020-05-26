@@ -1,7 +1,11 @@
 import React from 'react';
+// Routing
+import {Link} from 'react-router-dom';
+import Routes from '../constants/routes';
 // UI
 import {AppBar, Toolbar, Typography, Button} from '@material-ui/core';
 import ChildCareIcon from '@material-ui/icons/ChildCare';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import useStyles from '../constants/styles';
 
 const Navbar = () => {
@@ -10,11 +14,21 @@ const Navbar = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <ChildCareIcon />
         <Typography variant="h6" className={classes.title}>
-          Sibukoko
+          <Link to={Routes.HOME} className={classes.link}>
+            <ChildCareIcon />
+            Sibukoko
+          </Link>
         </Typography>
-        <Button color="inherit">Login</Button>
+        <Button
+          color="secondary"
+          variant="contained"
+          component={Link}
+          to={Routes.CART}
+          startIcon={<AddShoppingCartIcon />}
+        >
+          Cart
+        </Button>
       </Toolbar>
     </AppBar>
   );
